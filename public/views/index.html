@@ -1,0 +1,105 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Panel</title>
+	<link rel="stylesheet" href="styles/admin.css">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="styles/codemirror.css" />
+	<link href="styles/gray_button1.css" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	<script type="text/javascript" src="scripts/moment.min.js"></script>
+	<script type="text/javascript" src="scripts/codemirror.js"></script>
+	<script type="text/javascript" src="scripts/codemirror.css.js"></script>
+	<script type="text/javascript" src="scripts/codemirror.htmlmixed.js"></script>
+	<script type="text/javascript" src="scripts/codemirror.javascript.js"></script>
+	<script type="text/javascript" src="scripts/codemirror.xml.js"></script>
+	<script type="text/javascript" src="scripts/HandlebarsExtensions.js"></script>
+	<script type="text/javascript" src="scripts/data_persist.js"></script>
+	<script type="text/javascript" src="scripts/common_scripts.js"></script>
+	<script type="text/javascript" src="scripts/admin.js"></script>
+</head>
+<body>
+	<header class="header-two-bars">	
+		<div class="header-first-bar">
+			<div class="header-limiter">
+				<h1><a href="#">Custom<span>Api</span></a></h1>
+				<nav>
+					<a href="#" view-engine="true" hdr-view="hdr_home" panel-view="panel_home" class="selected">Home</a>
+					<a href="#" view-engine="true" hdr-view="hdr_scraper" panel-view="panel_scraper">Scraper</a>
+				</nav>
+				<a href="#" class="logout-button">Logout</a>
+			</div>
+		</div>
+		<div class="header-second-bar">
+			
+		</div>
+	</header>
+	<div class="admin-panel" style="background-color: black;">
+		<h1>Welcome to the Admin Panel</h1>
+	</div>
+	<div class="container">
+        <div class="modal" id="errorModal" role="dialog">
+            <div class="modal-dialog" style="margin-top: 125px;">
+                <div id="errorModal_Content" class="modal-content" style="background-color: black; border: 1px solid gray; color: white;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="html_content" style="display: none;">
+		
+	</div>
+<script type="text/javascript" id="sample_functions">
+function Run_Tests() {
+  	var tests = [{
+      	name: 'Sample Function',
+    	type: 'value',
+      	test: getValueFunction
+    },
+    {
+    	name: 'Sample ObjectID Function',
+      	type: 'objectid',
+      	test: getObjectByIdFunction
+    }];
+	common.fn.clear_editor();
+  	$(tests).each(function(i, test) {
+      	//common.fn.run_test(test);
+		run_test(test);
+    });
+}
+
+function run_test(test) {
+	var spacer = '\n-------------------------------\n';
+  	switch(test.type) {
+		case 'value':   
+        	CodeMirror.addNewLine(
+				spacer + test.name + spacer + test.test()
+			); 
+        	break;
+      	case 'objectid':
+        	CodeMirror.addNewLine(
+				spacer + test.name + spacer + String(test.test()).replace(/\t/, '')
+			);
+        	break;
+      	default:
+        	
+        	break;
+    }
+}
+  
+function getValueFunction() {
+	return 'Sample Return';
+}
+
+function getObjectByIdFunction() {
+ 	return $('#srch_preLoader').html();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<div class="panel panel-default" style="border: none;">
+	<div class="panel-section">
+		<div class="panel-heading clearfix" style="border-bottom: 1px solid rgb(169, 169, 169);">
+			<p class="text-left" style="margin-bottom: 0px;">HTML Viewer</p>
+			<div class="pull-right" style="margin-top: -20px; width: 80%">
+				<div style="width: 40%; float: right;">
+					<i class="fa fa-refresh point" style="margin-right: 10px;" onclick="loadHTML($('#in_url').val());"></i>
+					<input id="in_url" type="text" placeholder="URL of source to view" style="width: 90%;" value="http://cpktestapp2.herokuapp.com" />
+				</div>
+			</div>
+		</div>
+		<div id="code_editor" class="body-height" style="width: 100%;">
+			
+		</div>
+	</div>
+	<div class="panel-section" style="display: none;">
+		<div class="panel-heading clearfix" style="border-bottom: 1px solid rgb(169, 169, 169);">
+			<p class="text-left" style="margin-bottom: 0px;">Javascript Editor</p>
+			<button class="myButton pull-right point" style="margin-top: -20px; padding: 0px 30px;" onclick="loadScript();">Run Tests</button>
+		</div>
+		<div id="javascript_editor" class="body-height" style="width: 100%;">
+			
+		</div>
+	</div>
+	<div class="panel-section" style="display: none;">
+		<div class="panel-heading clearfix" style="border-bottom: 1px solid rgb(169, 169, 169);">
+			<p class="text-left" style="margin-bottom: 0px;">Results Editor</p>
+		</div>
+		<div id="results_editor" class="body-height" style="width: 100%;">
+			
+		</div>
+	</div>
+	<div class="panel-section clearfix" style="display: none; background-color: black;">
+		<div id="settings_panel" class="pull-left body-height settings_panel">
+			<div class="text-left">
+				<h3>HTML Settings</h3>
+				<label style="display: inline-flex; margin-left: 15px;">
+					<input id="remove_origin" style="margin-right: 15px" type="checkbox" checked="true" />
+					<span>Remove Origin from References</span>					
+				</label>
+				<br />
+				<label style="display: inline-flex; margin-left: 15px;">
+					<input id="show_body" style="margin-right: 15px" type="checkbox" checked="true" />
+					<span>Only Show Body</span>					
+				</label>
+			</div>
+		</div>
+	</div>
+</div>	

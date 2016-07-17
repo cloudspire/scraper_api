@@ -1,0 +1,8 @@
+{
+  "name": "Scraper_API",
+  "description": "Core functionality for building a scraper api",
+  "repository": "",
+  "logo": "",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
